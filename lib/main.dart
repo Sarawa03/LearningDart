@@ -4,6 +4,19 @@ void main() {
   runApp(const MyApp());
 }
 
+//Constants
+const age = 27;
+const twiceTheAge = age * 27;
+
+//Functions
+String getFullName(String firstName, String lastName) {
+  return '$firstName $lastName';
+}
+
+void printMyName(String name) {
+  print(name);
+}
+
 //Conditionals
 void conditionals() {
   final name = 'Foo';
@@ -71,18 +84,55 @@ void maps() {
   print(person);
 }
 
+//Nullability
+void nullability() {
+  String? name = null;
+  print(name);
+  name = 'Foo';
+  print(name);
+
+  List<String?> names = ['Foo', 'Bar', null];
+  List<String>? namesList = null;
+}
+
+//Cherry picking nullability
+void cherryNull(String? firstName, String? middleName, String? lastName) {
+  /* const String? firstName = null;
+  const String? middleName = 'Bar';
+  const String? lastName = 'Baz'; */
+  final firstNonNullValue = firstName ?? middleName ?? lastName;
+}
+
+//NullAwareOperator
+void nullAwareOperator(
+    String? firstName, String? middleName, String? lastName) {
+  String? name = firstName;
+  name ??= middleName;
+  name ??= lastName;
+  print(name);
+}
+
+void conditionalInvocation(List<String>? names) {
+  final length = names?.length ?? 0;
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print(getFullName('Foo', 'Bar'));
+    printMyName('Foo');
     conditionals();
     operators();
     lists();
     sets();
     setsOfObjects();
     maps();
+    nullability();
+    cherryNull('yes', null, 'test');
+    nullAwareOperator('Foo', null, ' Baz');
 
     return MaterialApp(
       title: 'Flutter Demo',
