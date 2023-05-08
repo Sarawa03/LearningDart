@@ -1,23 +1,74 @@
 import 'package:flutter/material.dart';
 
-//Constants
-const age = 27;
-const twiceTheAge = age * 27;
-
-//Functions
-String getFullName(String firstName, String lastName) {
-  return '$firstName $lastName';
-}
-
-void printMyName(String name) {
-  print(name);
-}
-
 void main() {
-  //Variable
-  var name = 'Foo';
-  name = 'yes';
   runApp(const MyApp());
+}
+
+//Conditionals
+void conditionals() {
+  final name = 'Foo';
+  if (name == 'Foo') {
+    print('Yes this is foo');
+  } else if (name != 'Bar') {
+    print('The value is not bar');
+  } else {
+    print('I don\'t kow what this is');
+    print("I don't kow what this is'");
+  }
+}
+
+//Operators
+void operators() {
+  //Numbers
+  var age = 20;
+  print('age $age');
+  final halfOfAge = age / 2;
+  print('halfOfAge $halfOfAge');
+  final doubleOfAge = age * 2;
+  print('doubleOfAge $doubleOfAge');
+  final ageMinusOne = --age;
+  print('ageMinusOne $ageMinusOne');
+
+  //String
+  final name = 'Foo Bar Baz';
+  final nameTimes20 = name * 20;
+  print(nameTimes20);
+}
+
+//Lists
+void lists() {
+  final names = ['Foo', 'Bar', 'Baz'];
+  final foo = names[0];
+  print(foo);
+
+  final length = names.length;
+  print(length);
+  names.add('My new name');
+  print(names.length);
+}
+
+//Sets
+void sets() {
+  final names = {'foo', 'bar', 'baz'};
+  names.add('foo');
+  names.add('bar');
+  names.add('baz');
+  print(names);
+}
+
+//Objects
+void setsOfObjects() {
+  final names = {'foo', 1, 'baz'};
+  print(names);
+}
+
+//Maps
+void maps() {
+  var person = {'age': 20, 'name': 'Foo'};
+  print(person);
+  person['name'] = 'MEOW';
+  person['lastname'] = 'MEOW';
+  print(person);
 }
 
 class MyApp extends StatelessWidget {
@@ -26,8 +77,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print(getFullName('Foo', 'Bar'));
-    printMyName('Foo');
+    conditionals();
+    operators();
+    lists();
+    sets();
+    setsOfObjects();
+    maps();
 
     return MaterialApp(
       title: 'Flutter Demo',
